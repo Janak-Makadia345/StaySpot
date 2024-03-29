@@ -1,0 +1,44 @@
+.navbar{
+  height: 50px;
+  background-color: #003580;
+  display: flex;
+  justify-content: center;
+}
+
+.navContainer{
+  width: 100%;
+  max-width: 1024px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loading {
+  padding: 4px 7px;
+  border-radius: 5px;
+  position: absolute;
+  background-color: aliceblue;
+  color: red;
+  font-weight: 700;
+  /* padding-top: 6px; */
+  opacity: 0; /* Start with 0 opacity */
+  transition: opacity 0.3s ease-in-out; /* Transition opacity with a duration of 0.3 seconds */
+}
+
+.loading.show {
+  opacity: 1; /* Show the loading element by changing opacity to 1 */
+}
+
+
+.logo{
+  font-weight: 500;
+}
+
+.navButton{
+  margin-left: 20px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #003580;
+}
