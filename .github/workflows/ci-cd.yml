@@ -10,30 +10,42 @@ jobs:
     runs-on: self-hosted
     
     steps:
+      # Step 1: Checkout Code from the repository
       - name: Checkout Code
         uses: actions/checkout@v3
       
+      # Step 2: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
       
+      # Step 3: Install dependencies for Backend
       - name: Install dependencies for Backend
         run: |
           cd api
           npm install
+          cd ..
       
+      # Step 4: Install dependencies for Frontend
       - name: Install dependencies for Frontend
         run: |
           cd client
           npm install
+          cd ..
 
+      # Step 5: Build the Frontend
       - name: Build Frontend
         run: |
           cd client
           npm run build
-
-      - name: Deploy Backend
+          cd ..
+      
+      # Step 6: Deploy Backend & Frontend concurrently using PM2 (or Nodemon)
+      - name: Deploy Backend and Frontend
         run: |
           cd api
-          node index.js
+          npm install pm2 -g  # Install PM2 globally to manage processes
+          pm2 start index.js --name booking-app-backend  # Start backend
+          cd ../client
+          serve -s build -l 3000  # Serve frontend using 'serve' on port 3000
