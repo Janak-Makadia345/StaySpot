@@ -20,7 +20,7 @@ jobs:
       
       - name: Install dependencies for Backend
         run: |
-          E:\COLLEGE WORK\BookingApp-main\BookingApp-main\api
+          cd api
           npm install
       
       - name: Install dependencies for Frontend
@@ -36,4 +36,4 @@ jobs:
       - name: Deploy Backend
         run: |
           cd api
-          npm start
+          node index.js
