@@ -2,7 +2,7 @@ import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-  const { data, loading, error } = useFetch("https://fronted-f8ne.onrender.com/api/hotels?featured=true&limit=4");
+  const { data, loading} = useFetch("https://fronted-f8ne.onrender.com/api/hotels?featured=true&limit=4");
 
   return (
     <div className="fp">
@@ -14,7 +14,7 @@ const FeaturedProperties = () => {
             <div className="fpItem" key={item._id}>
               <img
                 src={item.photos[0]}
-                alt=""
+                alt="Photos"
                 className="fpImg"
               />
               <span className="fpName">{item.name}</span>
