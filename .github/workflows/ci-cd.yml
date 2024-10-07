@@ -38,8 +38,8 @@ jobs:
       - name: Build Frontend
         run: |
           cd client
-          CI=false npm run build
-          cd ..
+          $env:CI="false"
+          npm run build
       
       # Step 6: Deploy Backend & Frontend concurrently using PM2 (or Nodemon)
       - name: Deploy Backend and Frontend
