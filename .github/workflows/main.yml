@@ -35,6 +35,9 @@ jobs:
           npx cross-env CI=false npm run build
       
       - name: Deploy Backend
+        env:
+          MONGO: ${{ secrets.MONGO }}
+          JWT: ${{ secrets.JWT }}
         run: |
           cd api
           node index.js
