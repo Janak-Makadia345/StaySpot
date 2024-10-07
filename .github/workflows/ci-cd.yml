@@ -1,0 +1,39 @@
+name: Deploy Booking App to Local Runner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies for Backend
+        run: |
+          cd api
+          npm install
+      
+      - name: Install dependencies for Frontend
+        run: |
+          cd client
+          npm install
+
+      - name: Build Frontend
+        run: |
+          cd client
+          npm run build
+
+      - name: Deploy Backend
+        run: |
+          cd api
+          npm start
