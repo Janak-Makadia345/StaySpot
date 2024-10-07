@@ -37,4 +37,4 @@ jobs:
       - name: Deploy Backend
         run: |
           cd api
-          node index.js
+          npm start
