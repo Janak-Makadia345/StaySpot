@@ -22,20 +22,18 @@ jobs:
         run: |
           cd api
           npm install
-          cd..
       
       - name: Install dependencies for Frontend
         run: |
           cd client
           npm install
-          cd..
-
+          npm install cross-env --save-dev
+      
       - name: Build Frontend
         run: |
           cd client
-          npm run build
-          cd..
-
+          npx cross-env CI=false npm run build
+      
       - name: Deploy Backend
         run: |
           cd api
