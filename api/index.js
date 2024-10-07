@@ -11,10 +11,10 @@ import cors from "cors";
 const app = express();
 dotenv.config();
 
-const connect = async () => {
- 
-await mongoose.connect(process.env.MONGO);
-console.log("Connected to mongoDB.");
+const connect = async () => { 
+  await mongoose.connect(process.env.MONGO);
+  console.log("Connected to mongoDB.");
+}
   
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
